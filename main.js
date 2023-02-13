@@ -58,6 +58,11 @@ const waitPromise = new Promise((resolve) =>{// we expect only resolve because t
 })
 waitPromise.then(() => console.log(`thanks for waiting`))
 
+
+
+
+
+
                         //remember that time is a parameter in this arrow function
 const secondWaitPromise = time => new Promise(resolve => {
     //we passed time as a arguement in resolve(time) so that we can use it in the .then to tell use how muchy time was used
@@ -71,14 +76,31 @@ const secondWaitPromise = time => new Promise(resolve => {
 secondWaitPromise(3000).then(time => console.log(`This is the second promise: ${time /= 1000}`))
 
 
+
+
+
 //============================================================
+//============================================================
+//============================================================
+
+
+
+
+
+
+
+
+
+
+
+
 //my practice lol
 
 
 
 
 const practicePromise = new Promise(function (resolve,reject) {
-    let foo = false
+    let foo = true
     if (foo){
         resolve(`this is resolved`)
     }else{
@@ -86,9 +108,50 @@ const practicePromise = new Promise(function (resolve,reject) {
     }
 })
 
-                    // there is no need to be an parameter because the reolve and reject from the promise above does not pass down a variable
-practicePromise.then(() => console.log(`MY FIRST PROMISE WORKED`))
-                .catch(() => console.log(`Damm my first promised worked but my trust is broken`))
+                    // there is no need to be an parameter in the arrow function because the reolve and reject from the promise above does not pass down a variable
+practicePromise.then((resolve) => console.log(resolve))
+                .catch((reject) => console.log(reject))
 
 
 //============================================================
+
+
+
+const secondPractice = new Promise(function (resolve, reject){
+    let fiveForJuice = true
+
+    if(fiveForJuice){
+        resolve(`I got the juice`)
+    }else{
+        reject(`you failed the promise now you owe me 5 bucks`)
+    }
+
+
+})
+
+
+secondPractice.then(resolve => console.log(resolve))
+
+
+
+
+//============================================================
+
+
+const thirdPractice = new Promise(function(resolve, reject){
+    let randomNumber = Math.round(Math.random() * 10)
+    console.log(randomNumber)
+    if(randomNumber > 5){
+        resolve(`the number was higher than 5`)
+    }else{
+        reject(`the number is below 5`)
+    }
+})
+
+thirdPractice.then(resolve => console.log(resolve))
+            .catch(reject => console.log(reject))
+
+//============================================================
+
+
+
